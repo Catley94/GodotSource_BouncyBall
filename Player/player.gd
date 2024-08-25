@@ -63,24 +63,26 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	
 
 func _on_body_entered(body: Node) -> void:
+	$BounceAnimation.play("player")
 	pass # Replace with function body.
 
 
 func _on_body_exited(body: Node) -> void:
 	#print(body.name)
-	if body.name == "Ground":
-		if queue_jump:
-			queue_jump = false
-			
-			# Reduces the thrust so ball is likely to stay on screen bouncing
-			# Small bug: If player continues to push space, it will still increase height minimally
-			# 	but once stopped, gravity will quickly pull it back down
-			var limiter: float = thrust.y / linear_velocity.y  
-			
-			#print("thrust.y (%s) / velocity.y (%s)  = %s " % [linear_velocity.y, thrust.y, thrust.y / linear_velocity.y ])
-			
-			print_rich("[color=cyan][b]Applying thrust now[/b][/color]") 
-			apply_impulse(thrust * limiter)
+	#if body.name == "Ground":
+	
+	if queue_jump:
+		queue_jump = false
+		
+		# Reduces the thrust so ball is likely to stay on screen bouncing
+		# Small bug: If player continues to push space, it will still increase height minimally
+		# 	but once stopped, gravity will quickly pull it back down
+		var limiter: float = thrust.y / linear_velocity.y  
+		
+		#print("thrust.y (%s) / velocity.y (%s)  = %s " % [linear_velocity.y, thrust.y, thrust.y / linear_velocity.y ])
+		
+		print_rich("[color=cyan][b]Applying thrust now[/b][/color]") 
+		apply_impulse(thrust * limiter)
 
 func check_velocity(state: PhysicsDirectBodyState2D) -> void:
 	var current_velocity = state.linear_velocity

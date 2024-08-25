@@ -1,0 +1,10 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1724618516
+icon.svg::CompressedTexture2D::1987746364990195520::1724275073::1724617579::1::::<><>::
+Main.tscn::PackedScene::6327596120538287866::1724617962::0::1::::<><>::uid://bcxj0n85t8tmh::::res://Player/Player.tscn<>uid://0qrw15f0lbx4::::res://Levels/Level1.tscn
+tilesheet_complete.png::CompressedTexture2D::687503691886654149::1724618516::1724618516::1::::<><>::
+::res://Levels/::1724536614
+Level1.tscn::PackedScene::1788824023570959671::1724536614::0::1::::<><>::
+::res://Player/::1724536614
+player.gd::GDScript::-1::1724535943::0::1::::<>RigidBody2D<>::
+Player.tscn::PackedScene::2574870892266931363::1724536614::0::1::::<><>::res://Player/player.gd
