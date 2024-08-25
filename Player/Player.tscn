@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcxj0n85t8tmh"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_m8dux"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7wf10"]
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rryxj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_aoiau"]
+
+[node name="Player" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_7wf10")
+gravity_scale = -1.0
+linear_velocity = Vector2(0, -200)
+linear_damp_mode = 1
+script = ExtResource("1_m8dux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rryxj")
+
+[node name="Mesh" type="MeshInstance2D" parent="."]
+position = Vector2(-1.49012e-07, 2.5928e-06)
+scale = Vector2(20.0227, 20)
+mesh = SubResource("SphereMesh_aoiau")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
