@@ -4,9 +4,9 @@ extends RigidBody2D
 @export var speed = 14
 
 # Vertical impulse applied to the character upon jumping in meters per second.
-@export var thrust: Vector2 = Vector2(0, -200)
+@export var thrust: Vector2 = Vector2(0, -300)
 
-@export var sidewardsThurst: int = 200
+@export var sidewardsThurst: int = 500
 
 var jumping: bool = false
 
