@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://qym0j4ht6a7a"]
+
+[ext_resource type="Script" path="res://player_character_3d.gd" id="1_01ghx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4y54"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjbwi"]
+albedo_color = Color(0.833222, 0.231065, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r72ns"]
+material = SubResource("StandardMaterial3D_sjbwi")
+radius = 10.0
+height = 20.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_01ghx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n4y54")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("CapsuleMesh_r72ns")
+
+[node name="Camera2D" type="Camera2D" parent="."]

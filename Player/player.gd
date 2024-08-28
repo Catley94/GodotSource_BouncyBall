@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+# See https://github.com/godotengine/godot/issues/89458 for physics bug of random bouncing on corners of tilemaps
+
 # How fast the player moves in meters per second.
 @export var speed = 14
 

@@ -1,13 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwfet3xck7pty"]
 
-[ext_resource type="PackedScene" uid="uid://bcxj0n85t8tmh" path="res://Player/Player.tscn" id="1_e8l18"]
 [ext_resource type="PackedScene" uid="uid://0qrw15f0lbx4" path="res://Levels/Level1.tscn" id="2_3wpwr"]
+[ext_resource type="PackedScene" uid="uid://qym0j4ht6a7a" path="res://Player_Character3D.tscn" id="2_wybvn"]
 
 [node name="Main" type="Node"]
 
-[node name="Player" parent="." instance=ExtResource("1_e8l18")]
-position = Vector2(5985, -2652)
-gravity_scale = 0.7
-
 [node name="Level1" parent="." instance=ExtResource("2_3wpwr")]
 position = Vector2(-311, 26)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_wybvn")]
+position = Vector2(5841, -2728)
