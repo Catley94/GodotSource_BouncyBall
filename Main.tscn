@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bcxj0n85t8tmh" path="res://Player/Player.tscn" id="2_07rm1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bq4uf"]
-size = Vector2(8000, 200)
+size = Vector2(10000, 200)
 
 [node name="Main" type="Node"]
 
