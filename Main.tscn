@@ -12,7 +12,7 @@ size = Vector2(10000, 200)
 position = Vector2(-226, 100)
 
 [node name="Player" parent="." instance=ExtResource("2_07rm1")]
-position = Vector2(500, 164)
+position = Vector2(54, -3072)
 
 [node name="ResetArea" type="Area2D" parent="."]
 
