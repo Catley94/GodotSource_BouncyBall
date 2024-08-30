@@ -1,12 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwfet3xck7pty"]
+[gd_scene load_steps=4 format=3 uid="uid://cwfet3xck7pty"]
 
 [ext_resource type="PackedScene" uid="uid://0qrw15f0lbx4" path="res://Levels/Level1.tscn" id="2_3wpwr"]
-[ext_resource type="PackedScene" uid="uid://qym0j4ht6a7a" path="res://Player_Character3D.tscn" id="2_wybvn"]
+[ext_resource type="PackedScene" uid="uid://bcxj0n85t8tmh" path="res://Player/Player.tscn" id="2_07rm1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq4uf"]
+size = Vector2(8000, 200)
 
 [node name="Main" type="Node"]
 
 [node name="Level1" parent="." instance=ExtResource("2_3wpwr")]
-position = Vector2(-311, 26)
+position = Vector2(-226, 100)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_wybvn")]
-position = Vector2(5841, -2728)
+[node name="Player" parent="." instance=ExtResource("2_07rm1")]
+position = Vector2(500, 164)
+
+[node name="ResetArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResetArea"]
+position = Vector2(6, 1171)
+shape = SubResource("RectangleShape2D_bq4uf")
+
+[connection signal="body_entered" from="ResetArea" to="Player" method="_on_reset_area_body_entered"]

@@ -1,0 +1,2 @@
+﻿39781
+/opt/Godot_v4.4-dev1_mono_linux_x86_64/Godot_v4.4-dev1_mono_linux.x86_64

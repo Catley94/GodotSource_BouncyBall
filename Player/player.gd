@@ -10,8 +10,6 @@ extends RigidBody2D
 
 @export var sidewardsThurst: int = 500
 
-var jumping: bool = false
-
 var max_amount_of_collisions_detected_in_one_tick: int = 2
 
 var previous_y_velocity: float = 0.0
@@ -19,6 +17,10 @@ var previous_y_velocity: float = 0.0
 var velocity_reset_value: int = -300
 
 var queue_jump: bool = false
+
+var reset_position_queued: bool = false
+
+var start_position: Vector2;
 
 # TODO
 # Add on force for left and right
@@ -29,13 +31,28 @@ var queue_jump: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	start_position = transform.origin
 	setup_collision_reporting()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+func resetting_all_properties() -> void:
+	queue_jump = false
+	reset_position_queued = false
+	linear_velocity = Vector2(0, 0) # Resets velocity for both x and y 
+	
+	
+
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	
+	if reset_position_queued:
+		set_freeze_enabled(true)
+		resetting_all_properties()
+		transform.origin = start_position
+		set_freeze_enabled(false)
+	
 	# Get the current velocity of the Rigidbody2D
 	if previous_y_velocity != 0: # Ignores first tick
 		check_velocity(state)
@@ -66,12 +83,10 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	$BounceAnimation.play("player")
-	pass # Replace with function body.
 
 
 func _on_body_exited(body: Node) -> void:
 	#print(body.name)
-	#if body.name == "Ground":
 	
 	if queue_jump:
 		queue_jump = false
@@ -119,3 +134,12 @@ func is_positive_number(value: float) -> bool:
 		return true
 	else:
 		return false
+	
+
+func _on_reset_area_body_entered(body: Node2D) -> void:
+	#print("Entered reset area")
+	queue_reset_position()
+
+func queue_reset_position() -> void: 
+	#print("Resetting position")
+	reset_position_queued = true

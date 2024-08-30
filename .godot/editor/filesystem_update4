@@ -1,0 +1,7 @@
+res://Levels/Level1.tscn
+res://Main.tscn
+res://Player/Player.tscn
+res://Player_Character3D.tscn
+res://Levels/tile_map_layer.gd
+res://Levels/reset_area.gd
+res://Player/player.gd
